@@ -28,7 +28,7 @@ import { Component } from '@angular/core';
     </table>
     <h5>Add record</h5>
     <input type="text" placeholder="Band..." [(ngModel)]="newRecord.band">
-    <input type="text" placeholder="Title..." [(ngModel)]="newRecord.band">
+    <input type="text" placeholder="Title..." [(ngModel)]="newRecord.title">
     <button type="submit" (click)="addRecord()">Add</button>
   `
 })
@@ -63,5 +63,6 @@ export class DirectivesController{
 
   addRecord() {
     this.records.push(this.newRecord);
+    this.newRecord = {};
   }
 }
