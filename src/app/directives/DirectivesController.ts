@@ -1,5 +1,5 @@
-
 import { Component } from '@angular/core';
+import { Record } from './../../models/Record';
 
 @Component({
   selector: 'directives',
@@ -19,8 +19,8 @@ import { Component } from '@angular/core';
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let record of records">
-          <td><input type="checkbox"></td>
+        <tr *ngFor="let record of records" [ngClass]="{'active': record.selected}">
+          <td><input type="checkbox" [(ngModel)]="record.selected"></td>
           <td>{{ record.band }}</td>
           <td>{{ record.title }}</td>
         </tr>
@@ -29,31 +29,33 @@ import { Component } from '@angular/core';
     <h5>Add record</h5>
     <input type="text" placeholder="Band..." [(ngModel)]="newRecord.band">
     <input type="text" placeholder="Title..." [(ngModel)]="newRecord.title">
-    <button type="submit" (click)="addRecord()">Add</button>
-  `
+    <button type="submit" (click)="addRecord()" [disabled]="validateForm()">Add</button>
+
+    <p>{{ records | json }}</p>
+  `,
+  styles: [
+    `
+      TR.active TD {
+        background: yellow
+      }
+    `
+  ]
 })
 export class DirectivesController{
   hideParagraph: boolean;
-  records: any[];
+  records: Record[];
   newRecord: any;
 
   constructor() {
     this.hideParagraph = true;
+
     this.records = [
-      {
-        title: 'The Dark Side of The Moon',
-        band: 'Pink Floyd'
-      },
-      {
-        title: 'Foxtrot',
-        band: 'Genesis'
-      },
-      {
-        title: 'Aqualung',
-        band: 'Jethro Tull'
-      }
+      new Record('The Dark Side of The Moon', 'Pink Floyd'),
+      new Record('Foxtrot', 'Genesis'),
+      new Record('Aqualung', 'Jethro Tull')
     ];
-    this.newRecord = { title: null, band: null };
+
+    this.newRecord = new Record(null, null);
   }
 
   showParagraph(event) {
@@ -62,7 +64,16 @@ export class DirectivesController{
   }
 
   addRecord() {
-    this.records.push(this.newRecord);
+    this.records.push(new Record(this.newRecord.title, this.newRecord.band));
     this.newRecord = {};
+  }
+
+  validateForm(): boolean {
+    return !(
+      this.newRecord.band &&
+      this.newRecord.title &&
+      this.newRecord.band.length > 0 &&
+      this.newRecord.title.length > 0
+    );
   }
 }
