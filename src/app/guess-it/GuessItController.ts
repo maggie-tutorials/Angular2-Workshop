@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -13,6 +14,7 @@ import { Component } from '@angular/core';
     <div *ngIf="deviation == 0">Perfect! The number was actually {{ numberToGuess }}</div>
     <div *ngIf="deviation > 0">Try again with a lower number</div>
     <div *ngIf="deviation < 0">Try again with a higher number</div>
+    <button type="button" (click)="restart()">RESTART THE GAME</button>
   `
 })
 export class GuessItController{
@@ -22,13 +24,23 @@ export class GuessItController{
   deviation: number;        // errore
 
   constructor() {
+    this.initGame();
+  }
+
+  initGame() {
     this.attempts = 0;
     this.numberToGuess = Math.floor((Math.random() * 100) + 1);
+    this.deviation = undefined;
+    this.guess = undefined;
+
   }
 
   verify() {
     this.attempts++;
     this.deviation = this.guess - this.numberToGuess;
+  }
 
+  restart() {
+    this.initGame();
   }
 }

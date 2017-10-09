@@ -1,13 +1,15 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { HelloModule } from './app/HelloModule';
-import { GuessItModule } from './app/guess-it/GuessItModule';
 import { environment } from './environments/environment';
+
+import { HelloModule } from './app/hello/HelloModule';
+import { GuessItModule } from './app/guess-it/GuessItModule';
+import { DirectivesModule } from './app/directives/DirectivesModule';
 
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(GuessItModule)
+platformBrowserDynamic().bootstrapModule(DirectivesModule)
   .catch(err => console.log(err));

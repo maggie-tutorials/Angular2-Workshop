@@ -2,12 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { GuessItController } from './GuessItController';
+import { HelloController } from './HelloController';
 
 @NgModule({
   // array dei Components
   declarations: [
-    GuessItController
+    HelloController
   ],
   // array delle dipendenze di modules
   imports: [
@@ -18,8 +18,8 @@ import { GuessItController } from './GuessItController';
   providers: [],
   // array dei Components da istanziare (quando parte)
   bootstrap: [
-    GuessItController
+    HelloController
   ]
 })
 
-export class GuessItModule{}
+export class HelloModule{}
