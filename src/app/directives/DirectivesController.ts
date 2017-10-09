@@ -27,16 +27,15 @@ import { Component } from '@angular/core';
       </tbody>
     </table>
     <h5>Add record</h5>
-    <input type="text" placeholder="Band..." [(ngModel)]="nrBand">
-    <input type="text" placeholder="Title..." [(ngModel)]="nrTitle">
+    <input type="text" placeholder="Band..." [(ngModel)]="newRecord.band">
+    <input type="text" placeholder="Title..." [(ngModel)]="newRecord.band">
     <button type="submit" (click)="addRecord()">Add</button>
   `
 })
 export class DirectivesController{
   hideParagraph: boolean;
   records: any[];
-  nrBand: string;
-  nrTitle: string;
+  newRecord: any;
 
   constructor() {
     this.hideParagraph = true;
@@ -53,7 +52,8 @@ export class DirectivesController{
         title: 'Aqualung',
         band: 'Jethro Tull'
       }
-    ]
+    ];
+    this.newRecord = { title: null, band: null };
   }
 
   showParagraph(event) {
@@ -62,10 +62,6 @@ export class DirectivesController{
   }
 
   addRecord() {
-    let record = {
-      title: this.nrTitle,
-      band: this.nrBand
-    }
-    this.records.push(record);
+    this.records.push(this.newRecord);
   }
 }
