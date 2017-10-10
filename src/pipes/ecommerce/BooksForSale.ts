@@ -3,7 +3,7 @@ import { Book } from '../../models/ecommerce/BookModel';
 @Pipe({
   name: 'booksForSale'
 })
-export class BooksForSale implements PipeTransform {
+export class BooksForSale {
   // L'unico metodo della Pipe è transform, che prende un input e ritorna un Output
   transform(bookTitle, args : Book) {
     // Check argomenti passati alla Pipe
@@ -11,7 +11,7 @@ export class BooksForSale implements PipeTransform {
     if (!args || !(args instanceof Book) || !args.isPromo()) {
       return bookTitle;
     } else {
-      return bookTitle + '** SALE **';
+      return `<label class="label label-success">${bookTitle} *SALE*</label>`;
     }
   }
 }

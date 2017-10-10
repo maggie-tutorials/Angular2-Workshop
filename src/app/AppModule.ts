@@ -19,6 +19,7 @@ import { CartService } from '../services/ecommerce/CartService';
 
 // Pipes
 import { BooksForSale } from '../pipes/ecommerce/BooksForSale';
+import { FilterByKeyword } from '../pipes/ecommerce/FilterByKeyword';
 
 @NgModule({
   // array dei Components
@@ -34,7 +35,8 @@ import { BooksForSale } from '../pipes/ecommerce/BooksForSale';
     TheBookComponent,
 
     // Pipes
-    BooksForSale
+    BooksForSale,
+    FilterByKeyword
   ],
   // array delle dipendenze di modules
   imports: [
