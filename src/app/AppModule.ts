@@ -17,6 +17,9 @@ import { TheBookComponent } from './ecommerce/TheBookComponent';
 import { BookStoreService } from '../services/ecommerce/BookStoreService';
 import { CartService } from '../services/ecommerce/CartService';
 
+// Pipes
+import { BooksForSale } from '../pipes/ecommerce/BooksForSale';
+
 @NgModule({
   // array dei Components
   declarations: [
@@ -28,7 +31,10 @@ import { CartService } from '../services/ecommerce/CartService';
     ChildComponent,
     // Ecommerce
     CartController,
-    TheBookComponent
+    TheBookComponent,
+
+    // Pipes
+    BooksForSale
   ],
   // array delle dipendenze di modules
   imports: [

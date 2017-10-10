@@ -17,7 +17,7 @@ export class  Book {
     this.title = title;
     this.qty = qty;
     this.price = price;
-    this.promo = this.promo ? this.promo : false;
+    this.promo = promo ? promo : false;
     this.qtyInCart = 0;
   }
 
@@ -26,7 +26,7 @@ export class  Book {
   getQty() : number { return this.qty }
   setQty(n : number) { this.qty = n }
   getPrice() : number { return this.price }
-  getPromo() : boolean { return this.promo }
+  isPromo() : boolean { return this.promo }
   getQtyInCart() : number { return this.qtyInCart }
   setQtyInCart(n : number) { this.qtyInCart = n }
 }

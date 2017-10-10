@@ -11,10 +11,10 @@ export class BookStoreService{
       new Book('JIIUHIUISD', "Cappuccetto Rosso", 5, 9.99)
     );
     this.products.push(
-      new Book('OISJIOFJHH', "Pinocchio", 25, 8.75)
+      new Book('OISJIOFJHH', "Pinocchio", 25, 8.75, true)
     );
     this.products.push(
-      new Book('WIUEH24OIJ', "Zanna Bianca", 19, 12.60)
+      new Book('WIUEH24OIJ', "Zanna Bianca", 19, 12.60, true)
     );
     this.products.push(
       new Book('OIDIH1ISJI', "Cappuccetto Rosso", 8, 8.30)

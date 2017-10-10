@@ -1,7 +1,7 @@
 <div class="row thebook-row">
-  <div class="col-xs-3">{{theBook.getTitle()}}</div>
-  <div class="col-xs-3">{{theBook.getPrice()}}</div>
-  <div class="col-xs-3">{{theBook.getQty()}} available | {{theBook.getQtyInCart()}} in cart</div>
+  <div class="col-xs-3">{{ theBook.getTitle() | booksForSale:theBook }}</div>
+  <div class="col-xs-3">{{ theBook.getPrice() }}</div>
+  <div class="col-xs-3">{{ theBook.getQty()}} available | {{ theBook.getQtyInCart() }} in cart</div>
   <div class="col-xs-3">
     <div class="input-group">
       <input type="text" placeholder="Qty" class="form-control" [(ngModel)]="bookQty">
