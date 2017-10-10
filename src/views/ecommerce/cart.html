@@ -15,22 +15,37 @@
   <div class="well" *ngIf="cartService.getCount() > 0">
     <h4>Shipping method</h4>
     <div class="radio">
-      <label for="">
-        <input type="radio" name="shipping-method">
+      <label for="shipping-method1">
+        <input id="shipping-method1"
+               type="radio"
+               name="shMethod"
+               [(ngModel)]="shMethod"
+               value="24.99"
+               (ngModelChange)="refreshTotal()">
         DHL Express (&euro; 24.99)
       </label>
     </div>
 
     <div class="radio">
-      <label for="">
-        <input type="radio" name="shipping-method">
+      <label for="shipping-method2">
+        <input id="shipping-method2"
+               type="radio"
+               name="shMethod"
+               [(ngModel)]="shMethod"
+               value="29.99"
+               (ngModelChange)="refreshTotal()">
         ESPS International (&euro; 29.99)
       </label>
     </div>
 
     <div class="radio">
-      <label for="">
-        <input type="radio" name="shipping-method">
+      <label for="shipping-method3">
+        <input id="shipping-method3"
+               type="radio"
+               name="shMethod"
+               [(ngModel)]="shMethod"
+               value="1.99"
+               (ngModelChange)="refreshTotal()">
         Bartolini (&euro; 1.99)
       </label>
     </div>

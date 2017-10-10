@@ -4,7 +4,7 @@ import { Book } from '../../models/ecommerce/BookModel';
 @Injectable()
 export class CartService {
   contents: Book[];
-  shippingCost: number;
+  shCost: number;
   discount: number;
 
   constructor() {
@@ -13,10 +13,10 @@ export class CartService {
   }
 
   addToCart(book : Book) {
-    // this.contents.push(book);
     let foundBook = this.contents.find((item : Book) => {
       return item.getIsbn() === book.getIsbn();
     });
+
     if (foundBook) {
       foundBook.setQtyInCart(book.getQtyInCart())
     } else {
@@ -25,11 +25,11 @@ export class CartService {
   }
 
   getTotal() : number {
-    // secondo me questo si può fare con reduce
     let t = 0;
     for (let book of this.contents) {
       t += book.getPrice() * book.getQtyInCart();
     }
+    t += this.shCost;
     return t;
   }
 
