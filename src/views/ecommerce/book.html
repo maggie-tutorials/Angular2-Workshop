@@ -1,0 +1,13 @@
+<div class="row thebook-row">
+  <div class="col-xs-3">{{theBook.getTitle()}}</div>
+  <div class="col-xs-3">{{theBook.getPrice()}}</div>
+  <div class="col-xs-3">{{theBook.getQty()}} available</div>
+  <div class="col-xs-3">
+    <div class="input-group">
+      <input type="text" placeholder="Qty" class="form-control" [(ngModel)]="bookQty">
+      <span class="input-group-btn">
+        <button class="btn btn-info" [disabled]="qtyIsValid()" (click)="propagateAddToCart()">Add to Cart</button>
+      </span>
+    </div>
+  </div>
+</div>

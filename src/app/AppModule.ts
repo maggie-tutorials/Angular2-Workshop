@@ -12,6 +12,10 @@ import { ChildComponent } from './hierarchy/ChildComponent';
 
 // eCommerce Components
 import { CartController } from './ecommerce/CartController';
+import { TheBookComponent } from './ecommerce/TheBookComponent';
+// services
+import { BookStoreService } from '../services/ecommerce/BookStoreService';
+import { CartService } from '../services/ecommerce/CartService';
 
 @NgModule({
   // array dei Components
@@ -19,9 +23,12 @@ import { CartController } from './ecommerce/CartController';
     HelloController,
     GuessItController,
     DirectivesController,
+    // Hierarchy
     MainComponent,
     ChildComponent,
-    CartController
+    // Ecommerce
+    CartController,
+    TheBookComponent
   ],
   // array delle dipendenze di modules
   imports: [
@@ -29,7 +36,10 @@ import { CartController } from './ecommerce/CartController';
     FormsModule
   ],
   // array dei services e altro
-  providers: [],
+  providers: [
+    BookStoreService,
+    CartService
+  ],
   // array dei Components da istanziare (quando parte)
   bootstrap: [
     CartController

@@ -1,3 +1,4 @@
+// Used in the Directives exercise
 export class Record {
   title: string;
   band: string;

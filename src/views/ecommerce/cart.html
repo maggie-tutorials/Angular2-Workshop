@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>Ecommerce</h1>
+
+  <input type="text" class="form-control input-lg" placeholder="Search">
+  <div class="row">
+    <div class="col-xs-3"><strong>Title</strong></div>
+    <div class="col-xs-3"><strong>Price</strong></div>
+    <div class="col-xs-3"><strong>Quantity</strong></div>
+    <div class="col-xs-3"><strong>Add to Basket</strong></div>
+  </div>
+  <the-book *ngFor="let product of products" [theBook]="product" (eM)="addToCart($event)"></the-book>
+
+  <div class="well" *ngIf="cartService.getCount() > 0">
+    <h4>Shipping method</h4>
+    <div class="radio">
+      <label for="">
+        <input type="radio" name="shipping-method">
+        DHL Express (&euro; 24.99)
+      </label>
+    </div>
+
+    <div class="radio">
+      <label for="">
+        <input type="radio" name="shipping-method">
+        ESPS International (&euro; 29.99)
+      </label>
+    </div>
+
+    <div class="radio">
+      <label for="">
+        <input type="radio" name="shipping-method">
+        Bartolini (&euro; 1.99)
+      </label>
+    </div>
+  </div>
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Coupon code">
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-success">Apply</button>
+    </span>
+  </div>
+  <hr>
+  <div class="text-right">
+    <h2>Total {{ total | currency:'EUR':true:'.2-2'}}</h2>
+  </div>
+</div>

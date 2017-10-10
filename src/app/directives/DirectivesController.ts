@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Record } from './../../models/Record';
+import { Record } from './../../models/directives/Record';
 
 @Component({
   selector: 'directives',
