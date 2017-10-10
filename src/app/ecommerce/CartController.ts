@@ -23,8 +23,11 @@ export class CartController{
   addToCart(payload) {
     // modifico qtyInCart in payload.book
     payload.book.setQtyInCart(parseInt(payload.qty));
+    
     // lo passo al Service per fare addToCart
     this.cartService.addToCart(payload.book);
+
+    // Aggiorno il totale
     this.total = this.cartService.getTotal();
   }
 }

@@ -24,6 +24,7 @@ export class  Book {
   getIsbn() : string { return this.isbn }
   getTitle() : string { return this.title }
   getQty() : number { return this.qty }
+  setQty(n : number) { this.qty = n }
   getPrice() : number { return this.price }
   getPromo() : boolean { return this.promo }
   getQtyInCart() : number { return this.qtyInCart }

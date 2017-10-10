@@ -25,6 +25,8 @@ export class TheBookComponent{
   }
 
   propagateAddToCart() {
+    this.theBook.setQty(this.theBook.getQty() - parseInt(this.bookQty));
+    
     // Call parent and emit add to cart event
     this.eM.emit({
       book: this.theBook,

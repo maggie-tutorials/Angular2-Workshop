@@ -13,7 +13,15 @@ export class CartService {
   }
 
   addToCart(book : Book) {
-    this.contents.push(book);
+    // this.contents.push(book);
+    let foundBook = this.contents.find((item : Book) => {
+      return item.getIsbn() === book.getIsbn();
+    });
+    if (foundBook) {
+      foundBook.setQtyInCart(book.getQtyInCart())
+    } else {
+      this.contents.push(book);
+    }
   }
 
   getTotal() : number {
