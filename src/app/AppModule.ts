@@ -6,12 +6,22 @@ import { HelloController } from './hello/HelloController';
 import { GuessItController } from './guess-it/GuessItController';
 import { DirectivesController } from './directives/DirectivesController';
 
+// Hierarchy Components
+import { MainComponent } from './hierarchy/MainComponent';
+import { ChildComponent } from './hierarchy/ChildComponent';
+
+// eCommerce Components
+import { CartController } from './ecommerce/CartController';
+
 @NgModule({
   // array dei Components
   declarations: [
     HelloController,
     GuessItController,
-    DirectivesController
+    DirectivesController,
+    MainComponent,
+    ChildComponent,
+    CartController
   ],
   // array delle dipendenze di modules
   imports: [
@@ -22,9 +32,7 @@ import { DirectivesController } from './directives/DirectivesController';
   providers: [],
   // array dei Components da istanziare (quando parte)
   bootstrap: [
-    HelloController,
-    GuessItController,
-    DirectivesController
+    CartController
   ]
 })
 
