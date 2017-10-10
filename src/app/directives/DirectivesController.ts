@@ -16,6 +16,7 @@ import { Record } from './../../models/Record';
           <th></th>
           <th>Band</th>
           <th>Title</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -23,6 +24,7 @@ import { Record } from './../../models/Record';
           <td><input type="checkbox" [(ngModel)]="record.selected"></td>
           <td>{{ record.band }}</td>
           <td>{{ record.title }}</td>
+          <td><button type="button" (click)="removeRecord(record)">Elimina</button></td>
         </tr>
       </tbody>
     </table>
@@ -30,6 +32,7 @@ import { Record } from './../../models/Record';
     <input type="text" placeholder="Band..." [(ngModel)]="newRecord.band">
     <input type="text" placeholder="Title..." [(ngModel)]="newRecord.title">
     <button type="submit" (click)="addRecord()" [disabled]="validateForm()">Add</button>
+    <button type="button" (click)="removeSelected()">Elimina selezionati</button>
 
     <p>{{ records | json }}</p>
   `,
@@ -66,6 +69,25 @@ export class DirectivesController{
   addRecord() {
     this.records.push(new Record(this.newRecord.title, this.newRecord.band));
     this.newRecord = {};
+  }
+
+  removeRecord(record) {
+    let index = this.records.indexOf(record);
+    this.records.splice(index, 1);
+  }
+
+  removeSelected() {
+    // 1st option: for loop
+    // let filteredRecords: Record[] = [];
+    // for (let record of this.records) {
+    //   if (!record.selected) {
+    //     filteredRecords.push(record);
+    //   }
+    // }
+    // this.records = filteredRecords;
+
+    // 2nd option: filter
+    this.records = this.records.filter(record => !record.selected);
   }
 
   validateForm(): boolean {
